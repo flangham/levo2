@@ -6,6 +6,12 @@ function App() {
   return (
     <div className="App">
       <Layout>
+        <h1 className="font-bold text-xl sm:text-2xl lg:text-4xl border-b mb-4">
+          Finn's Second Levo Test
+        </h1>
+        <h2 className="font-bold text-lg sm:text-xl lg:text-2xl mb-2">
+          Accordians
+        </h2>
         {accordianData.map((accordian, i) => (
           <Accordian
             key={i}
