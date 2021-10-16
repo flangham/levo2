@@ -4,9 +4,51 @@ export const Carousel: FC = ({ children }) => {
   const [position, setPosition] = useState<number>(0);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const [isTransitionEnabled, setIsTransitionEnabled] = useState<boolean>(true);
+  const [carouselContainerWidth, setCarouselContainerWidth] =
+    useState<number>(0);
+  const [carouselHeight, setCarouselHeight] = useState<number>(0);
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
 
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRowRef = useRef<HTMLDivElement>(null);
+  const carouselContainerRef = useRef<HTMLDivElement>(null);
   const numberOfChildren = useRef<number>(React.Children.count(children));
+
+  // SETUP OF HEIGHT + WIDTH
+  //////////////////////////
+
+  // First we find the width of the carousel container to determine the full width of the slider row
+  useEffect(() => {
+    setCarouselContainerWidth(carouselContainerRef.current?.clientWidth || 0);
+  }, []);
+
+  // Once the width is determined, we can find the height of the slider row to set the height of the container
+  // and add resize listener
+  useEffect(() => {
+    setCarouselHeight(
+      carouselRowRef.current?.children[position + 1].children[0].clientHeight ||
+        0
+    );
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        setCarouselContainerWidth(
+          carouselContainerRef.current?.clientWidth || 0
+        );
+        setCarouselHeight(
+          carouselRowRef.current?.children[position + 1].children[0]
+            .clientHeight || 0
+        );
+      });
+    }
+  }, [carouselContainerWidth, position]);
+
+  // Once the height has been set, we can add transition height
+  // I've used setTimeout to make it synchronous as it was still showing the initial height transition
+  useEffect(() => {
+    if (carouselHeight !== 0) setTimeout(() => setHasLoaded(true));
+  }, [carouselHeight]);
+
+  // SETUP OF SLIDE FUNCTIONALITY
+  ///////////////////////////////
 
   const incrementPosition = () => {
     if (isTransitioning) return;
@@ -45,41 +87,60 @@ export const Carousel: FC = ({ children }) => {
 
   return (
     <>
-      <div className="flex w-full justify-between items-center h-40 mb-4">
+      <div
+        className={[
+          'flex justify-between items-center mb-4 transition',
+          hasLoaded ? 'opacity-100' : 'opacity-0',
+        ].join(' ')}
+      >
         <button
           onClick={decrementPosition}
           className="border w-10 h-10 rounded-full border-black z-10"
         >
           ◀️
         </button>
-        <div className="bg-blue-200 flex-grow mx-4 relative h-full overflow-hidden">
+
+        {/* Carousel items */}
+        <div
+          ref={carouselContainerRef}
+          style={{ height: `${carouselHeight}px` }}
+          className={[
+            'flex-grow mx-4 relative overflow-hidden ',
+            hasLoaded ? 'transition-all duration-500' : null,
+          ].join(' ')}
+        >
           <div
-            ref={carouselRef}
+            ref={carouselRowRef}
             onTransitionEnd={handleTransitionEnd}
-            className="h-full bg-yellow-400 flex"
+            className="flex absolute top-0 left-0"
             style={{
-              transition: isTransitionEnabled ? 'all 0.5s' : 'none',
-              width: `${(numberOfChildren.current + 2) * 100}%`,
+              transition: isTransitionEnabled ? 'transform 0.5s' : 'none',
+              width: `${
+                (numberOfChildren.current + 2) * carouselContainerWidth
+              }px`,
               transform: `translateX(${
                 -position * (100 / (numberOfChildren.current + 2))
               }%) translateX(${-100 / (numberOfChildren.current + 2)}%)`,
             }}
           >
+            {/* Duplicate of last item at front */}
             {React.Children.map(children, (child, i) => {
               return i === numberOfChildren.current - 1 ? (
-                <div className="h-full flex-1">{child}</div>
+                <div className="flex-1">{child}</div>
               ) : null;
             })}
+
             {React.Children.map(children, (child, i) => {
-              return <div className="h-full flex-1">{child}</div>;
+              return <div className="flex-1">{child}</div>;
             })}
+
+            {/* Duplicate of first item at back */}
             {React.Children.map(children, (child, i) => {
-              return i === 0 ? (
-                <div className="h-full flex-1">{child}</div>
-              ) : null;
+              return i === 0 ? <div className="flex-1">{child}</div> : null;
             })}
           </div>
         </div>
+
         <button
           onClick={incrementPosition}
           className="border w-10 h-10 rounded-full border-black z-10"
@@ -87,6 +148,8 @@ export const Carousel: FC = ({ children }) => {
           ▶️
         </button>
       </div>
+
+      {/* Dots */}
       <div className="flex justify-center mb-4">
         {React.Children.map(children, (child, i) => {
           return (
