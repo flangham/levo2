@@ -3,6 +3,8 @@ import { Carousel } from './components/Carousel/Carousel';
 import { Layout } from './components/Layout/Layout';
 import { accordianData } from './testData/testData';
 import { Hero } from './components/Hero/Hero';
+import { GridTile } from './components/QuantumGrid/components/GridTile/GridTile';
+import { QuantumGrid } from './components/QuantumGrid/QuantumGrid';
 
 function App() {
   return (
@@ -68,6 +70,72 @@ function App() {
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
           </Carousel>
+        </div>
+
+        <div className="mb-16 md:mb-32">
+          <h2 className="font-bold text-lg sm:text-xl lg:text-2xl mb-2">
+            Quantum Grid
+          </h2>
+          <QuantumGrid>
+            <GridTile
+              closingSoon
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <GridTile
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <GridTile
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <GridTile
+              closingSoon
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <GridTile
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <GridTile
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <GridTile
+              snippet="Snippet text"
+              title="Title lorem ipsom"
+              description="lorem description text lorem description text lorem description text"
+              image="https://source.unsplash.com/random/600x600"
+              linkText="Read more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+          </QuantumGrid>
         </div>
       </Layout>
     </div>

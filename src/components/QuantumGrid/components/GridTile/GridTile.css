@@ -1,0 +1,34 @@
+@media (min-width: 1160px) {
+  .gridSmall .tileShell2 {
+    display: block;
+  }
+
+  .gridSmall .tileShell3 {
+    width: 100%;
+    height: 180px;
+    border-radius: 0;
+  }
+
+  .gridSmall .tileText {
+    padding: 1.5em 1.5em 0 1.5em;
+  }
+
+  .gridLarge .tileClosing {
+    right: 0.5rem;
+    left: auto;
+  }
+
+  .gridLarge .tileShell3 {
+    order: 1;
+    flex: 1;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .gridLarge .tileText {
+    order: 0;
+    flex: 1;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+}
