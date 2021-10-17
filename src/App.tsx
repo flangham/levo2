@@ -5,6 +5,7 @@ import { accordianData } from './testData/testData';
 import { Hero } from './components/Hero/Hero';
 import { GridTile } from './components/QuantumGrid/components/GridTile/GridTile';
 import { QuantumGrid } from './components/QuantumGrid/QuantumGrid';
+import { StretchedLink } from './components/StretchedLink/StretchedLink';
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
             Carousel
           </h2>
           <Carousel>
-            <h1 className="bg-purple-400 h-20 w-4">Thing 1</h1>
+            <h1 className="bg-purple-400 h-20 w-1/2">Thing 1</h1>
             <h1 className="bg-red-400">Thing 2</h1>
             <h1 className="bg-green-400 h-96">Thing 3</h1>
             <h1 className="bg-yellow-400 h-40">Thing 4</h1>
@@ -51,21 +52,21 @@ function App() {
             <Hero
               header="Finn's Second Levo Test"
               subheader="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              image="https://source.unsplash.com/random/1200x600"
+              image="https://source.unsplash.com/random/1201x600"
               CTA="Click here"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
             <Hero
               header="Finn's Second Levo Test"
               subheader="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              image="https://source.unsplash.com/random/1200x600"
+              image="https://source.unsplash.com/random/1202x600"
               CTA="Click here"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
             <Hero
               header="Finn's Second Levo Test"
               subheader="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              image="https://source.unsplash.com/random/1200x600"
+              image="https://source.unsplash.com/random/1203x600"
               CTA="Click here"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
@@ -90,7 +91,7 @@ function App() {
               snippet="Snippet text"
               title="Title lorem ipsom"
               description="lorem description text lorem description text lorem description text"
-              image="https://source.unsplash.com/random/600x600"
+              image="https://source.unsplash.com/random/601x600"
               linkText="Read more"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
@@ -98,7 +99,7 @@ function App() {
               snippet="Snippet text"
               title="Title lorem ipsom"
               description="lorem description text lorem description text lorem description text"
-              image="https://source.unsplash.com/random/600x600"
+              image="https://source.unsplash.com/random/602x600"
               linkText="Read more"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
@@ -107,7 +108,7 @@ function App() {
               snippet="Snippet text"
               title="Title lorem ipsom"
               description="lorem description text lorem description text lorem description text"
-              image="https://source.unsplash.com/random/600x600"
+              image="https://source.unsplash.com/random/603x600"
               linkText="Read more"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
@@ -115,7 +116,7 @@ function App() {
               snippet="Snippet text"
               title="Title lorem ipsom"
               description="lorem description text lorem description text lorem description text"
-              image="https://source.unsplash.com/random/600x600"
+              image="https://source.unsplash.com/random/604x600"
               linkText="Read more"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
@@ -123,7 +124,7 @@ function App() {
               snippet="Snippet text"
               title="Title lorem ipsom"
               description="lorem description text lorem description text lorem description text"
-              image="https://source.unsplash.com/random/600x600"
+              image="https://source.unsplash.com/random/605x600"
               linkText="Read more"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
@@ -131,11 +132,40 @@ function App() {
               snippet="Snippet text"
               title="Title lorem ipsom"
               description="lorem description text lorem description text lorem description text"
-              image="https://source.unsplash.com/random/600x600"
+              image="https://source.unsplash.com/random/606x600"
               linkText="Read more"
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
           </QuantumGrid>
+        </div>
+
+        <div className="mb-16 md:mb-32">
+          <h2 className="font-bold text-lg sm:text-xl lg:text-2xl mb-2">
+            Stretched Link
+          </h2>
+          <div className="-m-4">
+            <StretchedLink
+              image="https://source.unsplash.com/random/600x300"
+              title="This is a stretched link"
+              blurb="This is some fancy blurb text all about my fancy stretched link component"
+              linkText="Learn more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <StretchedLink
+              image="https://source.unsplash.com/random/601x300"
+              title="This is a stretched link"
+              blurb="This is some fancy blurb text all about my fancy stretched link component"
+              linkText="Learn more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+            <StretchedLink
+              image="https://source.unsplash.com/random/602x300"
+              title="This is a stretched link"
+              blurb="This is some fancy blurb text all about my fancy stretched link component"
+              linkText="Learn more"
+              url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
+            />
+          </div>
         </div>
       </Layout>
     </div>

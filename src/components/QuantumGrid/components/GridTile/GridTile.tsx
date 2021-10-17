@@ -38,18 +38,11 @@ export const GridTile: FC<Props> = ({
             {snippet}
           </h3>
           <a href={url}>
-            <h2 className="tileTitle text-blue-900 font-bold text-lg hover:underline">
-              {title}
-            </h2>
+            <h2 className="tileTitle linkTitle">{title}</h2>
           </a>
-          <p className="tileDescriptions text-gray-600 mb-2 lg:mb-6 flex-grow">
-            {description}
-          </p>
+          <p className="tileDescriptions linkDescription">{description}</p>
           <div>
-            <a
-              className="tileLink transition text-blue-700 group  hover:bg-blue-100 px-3 py-1 -mx-3 rounded-full font-bold inline-block"
-              href={url}
-            >
+            <a className="tileLink linkCTA" href={url}>
               <span className="transition-all mr-0 group-hover:mr-2">
                 {linkText}
               </span>
