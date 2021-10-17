@@ -6,6 +6,7 @@ import { Hero } from './components/Hero/Hero';
 import { GridTile } from './components/QuantumGrid/components/GridTile/GridTile';
 import { QuantumGrid } from './components/QuantumGrid/QuantumGrid';
 import { StretchedLink } from './components/StretchedLink/StretchedLink';
+import { Embed } from './components/Embed/Embed';
 
 function App() {
   return (
@@ -36,10 +37,10 @@ function App() {
             Carousel
           </h2>
           <Carousel>
-            <h1 className="bg-purple-400 h-20 w-1/2">Thing 1</h1>
+            <h1 className="bg-purple-400 h-20">Thing 1</h1>
             <h1 className="bg-red-400">Thing 2</h1>
             <h1 className="bg-green-400 h-96">Thing 3</h1>
-            <h1 className="bg-yellow-400 h-40">Thing 4</h1>
+            <h1 className="bg-yellow-400 h-40 w-1/2">Thing 4</h1>
             <h1 className="bg-blue-400 h-40">Thing 5</h1>
           </Carousel>
         </div>
@@ -166,6 +167,28 @@ function App() {
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
           </div>
+        </div>
+
+        <div className="mb-16 md:mb-32">
+          <h2 className="font-bold text-lg sm:text-xl lg:text-2xl mb-2">
+            Embed
+          </h2>
+          <p>Widescreen 16:9</p>
+          <Embed widescreen>
+            <iframe
+              title="YouTube video player for MGMT - When You Die"
+              src="https://www.youtube.com/embed/tmozGmGoJuw"
+              allowFullScreen
+            ></iframe>
+          </Embed>
+          <p>Fullscreen 4:3</p>
+          <Embed fullscreen>
+            <iframe
+              src="https://www.youtube.com/embed/7w6R4I7I3wA"
+              title="YouTube video player for Caroline Polachek - Door (Official Video)"
+              allowFullScreen
+            ></iframe>
+          </Embed>
         </div>
       </Layout>
     </div>

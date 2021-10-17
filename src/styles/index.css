@@ -4,6 +4,7 @@
 
 @import '../components/QuantumGrid/components/GridTile/GridTile.css';
 @import '../components/StretchedLink/StretchedLink.css';
+@import '../components/Embed/Embed.css';
 
 @layer utilities {
   .linkTitle {
