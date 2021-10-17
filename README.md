@@ -1,5 +1,7 @@
 # Levo 2
 
+[View site here](https://levo2.netlify.app/)
+
 ## Main objectives
 
 - Expand knowledge of GIT (commit, amend, merge, rebase, add, squash)
