@@ -19,7 +19,7 @@ module.exports = {
   variants: {
     extend: {
       margin: ['hover', 'group-hover'],
-      
+      borderStyle: ['last']
     },
   },
   plugins: [],

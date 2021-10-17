@@ -7,6 +7,7 @@ import { GridTile } from './components/QuantumGrid/components/GridTile/GridTile'
 import { QuantumGrid } from './components/QuantumGrid/QuantumGrid';
 import { StretchedLink } from './components/StretchedLink/StretchedLink';
 import { Embed } from './components/Embed/Embed';
+import { Pagination } from './components/Pagination/Pagination';
 
 function App() {
   return (
@@ -138,6 +139,13 @@ function App() {
               url="https://en.wikipedia.org/wiki/Dishwasher_salmon"
             />
           </QuantumGrid>
+        </div>
+
+        <div className="mb-16 md:mb-32">
+          <h2 className="font-bold text-lg sm:text-xl lg:text-2xl mb-2">
+            Pagination
+          </h2>
+          <Pagination />
         </div>
 
         <div className="mb-16 md:mb-32">
