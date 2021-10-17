@@ -21,7 +21,7 @@ export const Accordian: FC<Props> = ({ title, content }) => {
   }, []);
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 shadow">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex-grow flex items-center justify-between bg-black px-6 py-2 text-white w-full"

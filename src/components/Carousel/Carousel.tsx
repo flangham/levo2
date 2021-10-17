@@ -97,7 +97,7 @@ export const Carousel: FC = ({ children }) => {
           onClick={decrementPosition}
           className="border w-10 h-10 rounded-full border-black z-10"
         >
-          ◀️
+          ◀
         </button>
 
         {/* Carousel items */}
@@ -126,17 +126,19 @@ export const Carousel: FC = ({ children }) => {
             {/* Duplicate of last item at front */}
             {React.Children.map(children, (child, i) => {
               return i === numberOfChildren.current - 1 ? (
-                <div className="flex-1">{child}</div>
+                <div className="flex-1 bg-gray-100">{child}</div>
               ) : null;
             })}
 
             {React.Children.map(children, (child, i) => {
-              return <div className="flex-1">{child}</div>;
+              return <div className="flex-1 bg-gray-100">{child}</div>;
             })}
 
             {/* Duplicate of first item at back */}
             {React.Children.map(children, (child, i) => {
-              return i === 0 ? <div className="flex-1">{child}</div> : null;
+              return i === 0 ? (
+                <div className="flex-1 bg-gray-100">{child}</div>
+              ) : null;
             })}
           </div>
         </div>
@@ -145,7 +147,7 @@ export const Carousel: FC = ({ children }) => {
           onClick={incrementPosition}
           className="border w-10 h-10 rounded-full border-black z-10"
         >
-          ▶️
+          ▶
         </button>
       </div>
 
